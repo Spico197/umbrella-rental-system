@@ -18,6 +18,10 @@ DATABASES = {
         'PASSWORD': '密码',
     }
 }
+EMAIL_HOST = 'smtp.163.com' # 邮件SMTP服务器地址
+EMAIL_PORT = 25 # SMTP服务器端口
+EMAIL_HOST_USER = '***@***.com' # 帐号
+EMAIL_HOST_PASSWORD = '******'  # 密码
 ```
 
 - 在源码文件夹内打开命令行
