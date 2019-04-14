@@ -1,0 +1,36 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>{{ instruction }}</h3>
+    <h4>押金：{{ user.pledge_money }} - 余额：{{ user.balance }}</h4>
+    <ul class="list-group">
+      {% for inv in inventories %}
+        <li class="list-group-item">
+          {{ inv.time }} - {{ inv.umbrella.color }} - {{ inv.umbrella.category }} - {{ inv.umbrella.type }}
+          <span class="float-right">
+            <a class="giveback" href="{% url 'giveback' %}?umbrella_id={{ inv.umbrella.pk }}">还伞</a>
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  <nav>
+    <ul class="pagination">
+      {% if inventories.has_previous %}
+{#        <li><a href="{% url 'giveback' %}?p={{ inventories.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>#}
+        <li><a href="{% url 'giveback' %}?p={{ inventories.previous_page_number }}" aria-label="Previous"></a><span aria-hidden="true">«</span></li>
+      {% else %}
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+      {% endif %}
+
+      <li class="active"><a href="#">{{ inventories.number }}</a></li>
+
+      {% if inventories.has_next %}
+{#        <li><a href="{% url 'giveback' %}?p={{ inventories.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>#}
+        <li><a href="{% url 'giveback' %}?p={{ inventories.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+      {% else %}
+        <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  </div>
+{% endblock %}

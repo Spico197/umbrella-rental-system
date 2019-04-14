@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>校园雨伞租赁系统</title>
+</head>
+
+<body>
+<div class="container">
+  <h2>{{ instruction }}</h2>
+  <form method="post" class="form-horizontal">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">电子邮件</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="test@test.domain" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="密码" name="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">登录</button>
+        <button type="button" class="btn btn-default" onclick="window.open('{% url 'user_register' %}')">注册</button>
+      </div>
+    </div>
+  </form>
+
+</div> <!-- /container -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

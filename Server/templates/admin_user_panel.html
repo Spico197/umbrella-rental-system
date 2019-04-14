@@ -1,0 +1,14 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>管理员：{{ user.email }}</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="/admin/" target="_blank">进入后台管理界面</a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" target="_blank">None</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

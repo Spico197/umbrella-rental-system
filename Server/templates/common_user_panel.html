@@ -1,0 +1,15 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>{{ instruction }}</h3>
+    <h4>押金：{{ user.pledge_money }} - 余额：{{ user.balance }}</h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="{% url 'borrow' %}" target="_blank">借伞</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'giveback' %}" target="_blank">还伞</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
